@@ -3,6 +3,8 @@ import * as React from "react";
 import { Component } from "react";
 import { ApiProvider, Contact } from "../api provider/api_provider";
 import { WebPartContext } from "@microsoft/sp-webpart-base";
+import deleteIcon from "../assets/delete2.png";
+import editIcon from "../assets/edit1.jpg";
 
 class ContactDetails extends Component<
   {
@@ -39,15 +41,11 @@ class ContactDetails extends Component<
               {item.name}
             </p>
             <div className="editDiv" onClick={this.editContact}>
-              <img className="editIcon" src="assets/edit1.jpg" alt="edit" />
+              <img className="editIcon" src={editIcon} alt="edit" />
               <p>EDIT</p>
             </div>
             <div className="deleteDiv" onClick={this.deleteContact}>
-              <img
-                className="deleteIcon"
-                src=".media/delete2.png"
-                alt="delete"
-              />
+              <img className="deleteIcon" src={deleteIcon} alt="delete" />
               <p>DELETE</p>
             </div>
           </div>

@@ -1,6 +1,7 @@
 import "./Addressbook.scss";
 import * as React from 'react';
 import { Component } from "react";
+import blogIcon from "../assets/blog-icon.png";
 
 class NavBar extends Component<{ handleDialog: Function }> {
   constructor(props: any) {
@@ -26,7 +27,7 @@ class NavBar extends Component<{ handleDialog: Function }> {
         </li>
 
         <li className="icon">
-          <img className="icon" src="./media/blog-icon.png" alt="Blog Icon" />
+          <img className="icon" src={blogIcon} alt="Blog Icon" />
         </li>
       </ul>
     );
