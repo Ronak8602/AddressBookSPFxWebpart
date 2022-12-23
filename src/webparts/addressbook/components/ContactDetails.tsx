@@ -28,7 +28,7 @@ class ContactDetails extends Component<
 
   deleteContact() {
     let key: string = this.props.contact.key;
-    ApiProvider.deleteContact(this.props.context, key, this.props.setContacts);
+    ApiProvider.deleteContact(key, this.props.setContacts);
   }
 
   render() {

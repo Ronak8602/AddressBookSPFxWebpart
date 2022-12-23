@@ -18,8 +18,10 @@ body {
 div.scaffold {
   margin: 0px;
   padding: 0px;
-  height: 100vh;
+  height: 80vh;
   width: 80vw;
+  overflow: hidden;
+  overflow-y: scroll;
 }
 
 div.top {

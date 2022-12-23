@@ -75,7 +75,7 @@ class AddContactDialog extends Component<
 
   validateFields(): boolean {
     let nameFilter = /^[A-Za-z ]+$/;
-    let mobileFilter = /^\d{10}$/;
+    // let mobileFilter = /^\d{10}$/;
     let emailFilter =
       /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
@@ -102,17 +102,17 @@ class AddContactDialog extends Component<
       }
     }
 
-    if (this.state.mobile === "") {
-      this.setState({ mobileWarning: "Mobile can't be empty" });
-      count++;
-    } else {
-      if (!mobileFilter.test(this.state.mobile)) {
-        this.setState({ mobileWarning: "Enter valid number" });
-        count++;
-      } else {
-        this.setState({ mobileWarning: "*" });
-      }
-    }
+    // if (this.state.mobile === "") {
+    //   this.setState({ mobileWarning: "Mobile can't be empty" });
+    //   count++;
+    // } else {
+    //   if (!mobileFilter.test(this.state.mobile)) {
+    //     this.setState({ mobileWarning: "Enter valid number" });
+    //     count++;
+    //   } else {
+    //     this.setState({ mobileWarning: "*" });
+    //   }
+    // }
 
     return count > 0 ? false : true;
   }
@@ -125,7 +125,6 @@ class AddContactDialog extends Component<
       );
       ApiProvider.createContact(
         contact,
-        this.props.dialogData.context,
         this.props.dialogData.update
       );
       this.props.dialogData.handleCancelAdd();
@@ -138,7 +137,7 @@ class AddContactDialog extends Component<
     if (validation === true) {
       console.log(key);
       let contact = this.createContactDataObject(key);
-      ApiProvider.updateContact(this.props.dialogData.context, contact,  this.props.dialogData.update);
+      ApiProvider.updateContact(contact, this.props.dialogData.update);
       this.props.dialogData.handleCancelUpdate();
       setTimeout(
         this.props.dialogData.update(this.props.dialogData.context),
